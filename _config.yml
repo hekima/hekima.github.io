@@ -2,9 +2,9 @@
 title:       Zahpee Development Blog
 email:       contato@zahpee.com
 author:      Zahpee Developers
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+description: ""
 baseurl:     ""
-url:         "http://zahpee.github.io"
+url:         "http://developers.zahpee.com"
 
 # Google analytics
 google_analytics: UA-57052292-1
