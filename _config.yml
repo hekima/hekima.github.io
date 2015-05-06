@@ -1,10 +1,10 @@
 # Site settings
-title:       Zahpee Development Blog
-email:       contato@zahpee.com
-author:      Zahpee Developers
+title:       Hekima Development Blog
+email:       contato@hekima.com
+author:      Hekima Developers
 description: ""
 baseurl:     ""
-url:         "http://developers.zahpee.com"
+url:         "http://developers.hekima.com"
 
 # Google analytics
 google_analytics: UA-57052292-1
@@ -33,4 +33,4 @@ sass:
 
 # Disqus
 disqus:
-    shortname: 'zahpeedev'
+    shortname: 'hekima'
