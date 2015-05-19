@@ -25,6 +25,7 @@ layout: default
 <!-- {% if site.show_post_footers %}
   {% include post_footer.html %}
 {% endif %} -->
+<p>Tags: {{ page.tags | array_to_sentence_string }}</p>
 
 {% if site.show_related_posts %}
   <h3 class="related-post-title">Related Posts</h3>

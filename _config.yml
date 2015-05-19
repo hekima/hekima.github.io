@@ -10,7 +10,7 @@ url:         "http://hekima.github.io"
 google_analytics: UA-57052292-1
 
 # Optional features
-animated:           false
+animated:           true
 show_related_posts: false
 show_post_footers:  false
 
