@@ -11,8 +11,8 @@ tags:
   - scrum
   - scripts
   - features
-  - gladiator
   - mvp
+  - gladiator
   - The manual task that became a script. The script that became a feature. The feature that defined a product.
 author: Daniel Galinkin
 authurl: https://plus.google.com/+DanielGalinkin
@@ -38,7 +38,7 @@ We named those features **Gladiator Features**. *The manual task that
 became a script. The script that became a feature. The feature that
 defined a product.* That is how the Gladiator quote goes, right? No?
 
-![Gladiator (2000)](http://soundtracksandtrailermusic.com/wp-content/uploads/2012/07/BeginningTheBatte_GladiatorOSTsoundtrack_HansZimmer.jpg "Gladiator (2000)")
+![Gladiator (2000)](/images/gladiator.jpg "Gladiator (2000)")
 
 Anyway, we used to think that when this happened, it was a flaw in our
 planning, and that we should have been able to predict it. But in the
