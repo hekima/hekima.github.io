@@ -46,12 +46,12 @@ Gladiator movie, not every slave became a gladiator, and in the
 development world, not every manual task becomes a full-fledged
 feature.
 
-If we chose to implement and develop every possible feature a user
-could request, most of those features wouldn't be used by her, and we
-would have spent precious time into something with no return of
-investment. By only implementing what is really needed, we are
-building a lean product, and spending our development time where it
-really matters.
+If we chose to implement and develop every feature requested by users,
+we’d probably find that most of those features wouldn’t be actually
+used at all, and we would have spent precious time into something with
+no return of investment. By only implementing what is really needed,
+we are building a lean product, and spending our development time
+where it really matters.
 
 A Gladiator Feature isn't necessarily a flaw in the planning stage of
 an app. It is more like a lazy evaluation of the worth of a feature,
