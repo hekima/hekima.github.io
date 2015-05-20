@@ -2,7 +2,7 @@
 layout: post
 title: Gladiator Features
 date:       2015-05-19 19:44:19
-summary: The manual task that became a script. The script that became a feature. The feature that defied a market.
+summary: The manual task that became a script. The script that became a feature. The feature that defined a product.
 categories:
   - agile
   - scrum
@@ -13,7 +13,7 @@ tags:
   - features
   - gladiator
   - mvp
-  - The manual task that became a script. The script that became a feature. The feature that defied a market.
+  - The manual task that became a script. The script that became a feature. The feature that defined a product.
 author: Daniel Galinkin
 authurl: https://plus.google.com/+DanielGalinkin
 ---
@@ -24,7 +24,7 @@ Then, we would have to repeat this manual task more often than not. *"Let's make
 
 Then, running this script would become too time consuming, and we would finally bake the feature directly into our app, so the user would have direct access to it. Lots of times, we would deem a feature unworthy of our development time, and it would slowly but surely crawl its way into the app.
 
-We named those features the **Gladiator Features**. *The manual task that became a script. The script that became a feature. The feature that defied a market.* That is how the Gladiator quote goes, right? No?
+We named those features the **Gladiator Features**. *The manual task that became a script. The script that became a feature. The feature that defined a product.* That is how the Gladiator quote goes, right? No?
 
 ![Gladiator (2000)](http://soundtracksandtrailermusic.com/wp-content/uploads/2012/07/BeginningTheBatte_GladiatorOSTsoundtrack_HansZimmer.jpg "Gladiator (2000)")
 
