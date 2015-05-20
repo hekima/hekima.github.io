@@ -28,7 +28,9 @@ We named those features **Gladiator Features**. *The manual task that became a s
 
 ![Gladiator (2000)](http://soundtracksandtrailermusic.com/wp-content/uploads/2012/07/BeginningTheBatte_GladiatorOSTsoundtrack_HansZimmer.jpg "Gladiator (2000)")
 
-Anyway, we used to think that when this happened, it was a flaw in our planning, and that we should have been able to predict it. But in the Gladiator movie, not every slave became a gladiator. And in the development world, not every manual task becomes a full-fledged feature.
+Anyway, we used to think that when this happened, it was a flaw in our
+planning, and that we should have been able to predict it. But in the
+Gladiator movie, not every slave became a gladiator, and, in the development world, not every manual task becomes a full-fledged feature.
 
 If we chose to implement and develop every possible feature a user could request, most of those features wouldn't be used by her, and we would have spent precious time into something with no return of investment. By only implementing what is really needed, we are building a lean product, and spending our development time where it really matters.
 
