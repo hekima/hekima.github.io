@@ -11,7 +11,7 @@ url:         "http://developers.hekima.com"
 google_analytics: UA-57052292-1
 
 # Optional features
-animated:           false
+animated:           true
 show_related_posts: false
 show_post_footers:  false
 
