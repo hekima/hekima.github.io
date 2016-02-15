@@ -489,33 +489,31 @@ Na pŕoxima etapa vamos analisar quantas vezes os ganhadores coincidiram, isto �
 # now we check which prizes coincide more 
 sag_oscar = movies_sframe.apply(lambda x: x['title'] if ((x['sag_winner'] * x['winner']) == 1) else 'none', dtype=str)
 sag_oscar = sag_oscar.filter(lambda x: x != 'none')
-#print "Sag: " + str(sag_oscar)
 print "Sag: " + str(len(sag_oscar))
                               
 golden_oscar = movies_sframe.apply(lambda x: x['title'] if x['golden_globe'] * x['winner'] == 1 else None, dtype=str)
 golden_oscar = golden_oscar.filter(lambda x: x != None)
-#print "Golden Globes: " + str(golden_oscar)
 print "Golden Globes: " + str(len(golden_oscar))
     
 ny_oscar = movies_sframe.apply(lambda x: x['title'] if x['nyfcc_winner'] * x['winner'] == 1 else None, dtype=str)
 ny_oscar = ny_oscar.filter(lambda x: x != None)
-#print "NYFCC: " + str(ny_oscar)
 print "NYFCC: " + str(len(ny_oscar))
 
 dga_oscar = movies_sframe.apply(lambda x: x['title'] if x['dga_winner'] * x['winner'] == 1 else None, dtype=str)
 dga_oscar = dga_oscar.filter(lambda x: x != None)
-#print "DGA: " + str(dga_oscar)
 print "DGA: " + str(len(dga_oscar))
 
 wga_oscar = movies_sframe.apply(lambda x: x['title'] if x['wga_winner'] * x['winner'] == 1 else None, dtype=str)
 wga_oscar = wga_oscar.filter(lambda x: x != None)
-#print "WGA: " + str(wga_oscar)
 print "WGA: " + str(len(wga_oscar))
 
 pga_oscar = movies_sframe.apply(lambda x: x['title'] if x['pga_winner'] * x['winner'] == 1 else None, dtype=str)
 pga_oscar = pga_oscar.filter(lambda x: x != None)
-#print "PGA: " + str(pga_oscar)
 print "PGA: " + str(len(pga_oscar))
+
+bafta_oscar = movies_sframe.apply(lambda x: x['title'] if x['bafta_winner'] * x['winner'] == 1 else None, dtype=str)
+bafta_oscar = bafta_oscar.filter(lambda x: x != None)
+print "BAFTA: " + str(len(bafta_oscar))
 
 ```
 
@@ -525,6 +523,7 @@ print "PGA: " + str(len(pga_oscar))
     DGA: 12
     WGA: 7
     PGA: 11
+    BAFTA: 8
 
 
 Podemos perceber que os dois melhores termômetros do Oscar são:
@@ -548,7 +547,7 @@ Para verificar o resultado anotamos quantas vezes acertamos o ganhador na primei
 
 ```python
 
-features = ["pga_winner","dga_winner", "golden_globe", "sag_winner", "budget", "opening_weekend", "runtime_oficial", "user_rating"]
+features = ["bafta_winner","pga_winner","dga_winner", "golden_globe", "sag_winner", "budget", "opening_weekend", "runtime_oficial", "user_rating"]
 
 print 'Features:' + str(features)
 
@@ -691,8 +690,8 @@ print 'Acurácia: ' + str(top1_correct/float(15))
     
     Vencedor real:12 Years a Slave
     ----------
-    Vencedor previsto: Gravity
-    Segundo previsto: 12 Years a Slave
+    Vencedor previsto: 12 Years a Slave
+    Segundo previsto: Gravity
     Terceito previsto: The Wolf of Wall Street
     
     
@@ -700,14 +699,14 @@ print 'Acurácia: ' + str(top1_correct/float(15))
     ----------
     Vencedor previsto: Birdman
     Segundo previsto: Whiplash
-    Terceito previsto: The Grand Budapest Hotel
+    Terceito previsto: Imitation Game
     Acertos em 3: 15
-    Acertos em 1: 13
+    Acertos em 1: 14
     Acurácia em 3: 1.0
-    Acurácia: 0.866666666667
+    Acurácia: 0.9333333
 
 
-Considerando o top 3 acertamos 15 vezes das 15. Mas no caso de considerar apenas o filme de maior probabilidade foram 13 acertos de 15 possíveis. Sendo que, sinceramente, "Brokeback Mountain" deveria ter ganhado de "Crash", logo, considero que nós acertamos e o Oscar errou =P
+Considerando o top 3 acertamos 15 vezes das 15. Mas no caso de considerar apenas o filme de maior probabilidade foram 14 acertos de 15 possíveis. Sendo que, sinceramente, "Brokeback Mountain" deveria ter ganhado de "Crash", logo, considero que nós acertamos e o Oscar errou =P
 
 Essa forma de avaliar um algoritmo é chamada de Leave-one-out que é praticamente um k-fold cross validation que o k=n, sendo n o número de itens a serem testados.
 
