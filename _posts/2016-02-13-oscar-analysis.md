@@ -28,7 +28,7 @@ authurl: https://twitter.com/lfmendes
 
 Olá a todos, esse post é a segunda parte de um conjunto de posts intítulados "Brincando com os dados". A <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/importing_oscar_runners/" target="_blank">primeira parte</a> foi sobre como trabalhar com pymongo e fazer o carregamento dos filmes indicados a melhor filme do Oscar.
 
-Esse segundo post será sobre análise de dados, vamos pegar os dados salvos na primeira parte e verificar se existem atributos que indicam que um filme será o vencedor ou não.
+Esse segundo post será sobre análise de dados, vamos pegar os dados salvos na primeira parte e verificar se existem atributos que indicam que um filme será o vencedor ou não. Ao final dessa postagem iremos tentar prever qual será o **ganhador do Oscar de 2016**. 
 
 Novamente, vamos trabalhar com <a href="https://api.mongodb.org/python/current/" target="_blank">PyMongo</a> para buscar os dados no <a href="https://www.mongodb.org/" target="_blank">MongoDB</a>. Para visualizar os dados vamos utilizar uma biblioteca de Machine Learning chamada <a href="https://dato.com/products/create/" target="_blank">GraphLab create</a> da empresa <a href="https://dato.com" target="_blank">Dato</a>. 
 
