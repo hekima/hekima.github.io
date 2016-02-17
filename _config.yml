@@ -6,6 +6,7 @@ description: ""
 baseurl:     ""
 #url:         "http://hekima.github.io"
 url:         "http://developers.hekima.com"
+comments: true
 
 # Google analytics
 google_analytics: UA-57052292-1
