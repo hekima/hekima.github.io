@@ -18,6 +18,8 @@ layout: default
   <span class="post-meta small">{{ minutes }} minute read</span>
 </div>
 
+{% include social_share.html %}
+
 <article class="post-content">
   {{ content }}
 </article>
@@ -28,6 +30,7 @@ layout: default
 {% endif %} -->
 <p>Tags: {{ page.tags | array_to_sentence_string }}</p>
 
+{% include social_share.html %}
   
   <div id="disqus_thread"></div>
     <script>
