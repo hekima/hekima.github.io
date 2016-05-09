@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Análise de sobrevivência (Survival Analysis)
-date:  2016-05-09 11:44:19
+date:  2016-05-09 08:44:19
 summary: Pequeno estudo sobre Análise de sobreviência que é um ramo da estatística que analisa tempos até ao acontecimento de determinado evento. 
 categories:
   - statiscs
