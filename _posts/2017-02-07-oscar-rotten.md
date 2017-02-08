@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Brincando com dados: Análise de Oscar - Rotten Tomatoes"
+title: "Brincando com dados: Análise do Oscar - Rotten Tomatoes"
 date:  2017-02-07 08:44:19
 summary: Chegamos naquela época do ano, praticamente o carnaval dos cinéfilos, aquela época que a Meryl Streep vai ser indicada. A época das premiações “mais importantes” do mundo do cinema. Então vamos aproveitar essa época e fazer uma análise sobre as notas no Rotten Tomatoes dos indicados ao Oscar de melhor filme.
 categories:
