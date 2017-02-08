@@ -25,38 +25,37 @@ Chegamos naquela época do ano, praticamente o carnaval dos cinéfilos, aquela �
 
 Então vamos aproveitar essa vibe cinematográfica para fazer umas análises?
 
-Ano passado fiz dois posts sobre o mesmo assunto [Brincando com dados: Ganhadores do Oscar Parte 1](http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/importing_oscar_runners/) e [Brincando com dados: Ganhadores do Oscar Parte 2](http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/oscar-analysis/). Neles eu fiz algumas análises e tentei prever alguns prêmios. Acertei os ganhadores de melhor ator e melhor atriz mas errei a previsão do ganhador de melhor filme... =(
+Ano passado fiz dois posts sobre o mesmo assunto <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/importing_oscar_runners/" target="_blank">Brincando com dados: Ganhadores do Oscar Parte 1</a> e <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/oscar-analysis/" target="_blank">Brincando com dados: Ganhadores do Oscar Parte 2</a> . Neles eu fiz algumas análises e tentei prever alguns prêmios. Acertei os ganhadores de melhor ator e melhor atriz mas errei a previsão do ganhador de melhor filme... =(
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/QJY9tY29IQGMU/giphy.gif" alt="Sadness" style="width: 400px;"/> </div>
 
 Mas eu sou brasileiro e não desisto nunca, fiquei pensando por qual motivo o algoritmo errou o resultado. Aparentemente ano passado foi um outlier, dado que nem o DGA nem o PGA bateram com o ganhador do Oscar.
 
-O Oscar tem um sistema peculiar de votação, que muitas vezes valoriza mais os filmes "menos" odiados, pensei então que os valores do [Rotten Tomatoes](http://rottentomatoes.com/) poderiam refletir algo nesse sentido.
-
+O Oscar tem um sistema peculiar de votação, que muitas vezes valoriza mais os filmes "menos" odiados, pensei então que os valores do <a href="http://rottentomatoes.com/" target="_blank">Rotten Tomatoes</a> poderiam refletir algo nesse sentido.
 
 ## Como funciona o Rotten Tomatoes
 
 
-O Rotten Tomatoes é um site para avaliação de filmes, seu sistema difere um pouco de sites como [IMDb](www.imdb.com) pois cada pessoa ou crítico avalia o filme entre 1 e 5 estrelas, mas o site considera esse voto de uma forma binária, isto é, ou o filme é *Fresh* (Fresco) ou *Rotten* (Podre). O score final do filme é o % de notas Fresh que ele recebeu.
+O Rotten Tomatoes é um site para avaliação de filmes, seu sistema difere um pouco de sites como <a href="https://www.imdb.com" target="_blank">IMDb</a> pois cada pessoa ou crítico avalia o filme entre 1 e 5 estrelas, mas o site considera esse voto de uma forma binária, isto é, ou o filme é *Fresh* (Fresco) ou *Rotten* (Podre). O score final do filme é o % de notas Fresh que ele recebeu.
 
 Outra diferença do Rotten Tomatoes é que ele possui dois valores, um para críticos e outro para o público. Nesse post vamos analisar esses dois scores separadamente e em conjunto.
 
 
 ## Objetivo 
 
-Então, o objetivo desse post é demonstrar formas de analisar uma feature nova, como visualizar os valores, estudar relações, fazer transformações e quais insights elas podem gerar. Além disso, vou mostrar aqui um pouco de sobre [MongoDB](https://www.mongodb.com/), [PyMongo](https://api.mongodb.com/python/current/) e principalmente sobre a biblioteca [Pandas](http://pandas.pydata.org/).
+Então, o objetivo desse post é demonstrar formas de analisar uma feature nova, como visualizar os valores, estudar relações, fazer transformações e quais insights elas podem gerar. Além disso, vou mostrar aqui um pouco de sobre <a href="https://www.mongodb.com" target="_blank"> MongoDB </a>, <a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a> e principalmente sobre a biblioteca <a href="http://pandas.pydata.org" target="_blank"> Pandas </a>.
 
 ## Preparativos
 Para ficar mais simples e didático decidimos utilizar o Jupyter Notebook, para fazer a instalação dele siga o tutorial descrito aqui: http://jupyter.readthedocs.org/en/latest/install.html 
 
-Para rodar o código ou acompanhar o post pelo Jupyter Notebook baixe o arquivo: ARQUIVO.PY
+Para rodar o código ou acompanhar o post pelo Jupyter Notebook baixe o arquivo <a href="https://github.com/lfomendes/oscarPredictions/blob/master/Oscar%20Analysis%202017.ipynb"  target="_blank"> https://github.com/lfomendes/oscarPredictions/blob/master/Oscar%20Analysis%202017.ipynb </a>
 
 ## Base
-[MongoDB](https://www.mongodb.com/): O MongoDB é um banco de dados não relacional, ele é orientado a documentos e utiliza um formato chamado BSON, bem próximo ao JSON. Ele é bem simples de entender e utilizar.
+<a href="https://www.mongodb.com" target="_blank"> MongoDB </a>: O MongoDB é um banco de dados não relacional, ele é orientado a documentos e utiliza um formato chamado BSON, bem próximo ao JSON. Ele é bem simples de entender e utilizar.
 
-[Pandas](http://pandas.pydata.org/): Biblioteca de python para estrutura e análise de dados.
+<a href="http://pandas.pydata.org" target="_blank">Pandas</a>: Biblioteca de python para estrutura e análise de dados.
 
-[PyMongo](https://api.mongodb.com/python/current/): PyMongo é uma biblioteca em python para acessar o MongoDB.
+<a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a>: PyMongo é uma biblioteca em python para acessar o MongoDB.
 
 
 Vamos lá então?
@@ -155,7 +154,7 @@ for winner in bafta_winners:
 
 Criamos um cursor utilizando uma consulta vazia, isto é, não estamos filtrando nada, todos filmes serão retornados. Logo depois, iteramos pelo cursor adicionando os documentos retornados na lista "movies".
 
-Depois disso, vamos criar um [DataFrame](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html) com todos os filmes e aplicar uma transformação em suas colunas.
+Depois disso, vamos criar um <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame." target="_blank">DataFrame</a> com todos os filmes e aplicar uma transformação em suas colunas.
 
 
 ```python
@@ -599,12 +598,12 @@ df.sort_values(by='rotten_critic',ascending=True).filter(items=['title','rotten_
 
 
 
-Parece que o filme com menor score dos críticos foi ["Extremely Loud & Incredibly Close"](https://www.rottentomatoes.com/m/extremely_loud_and_incredibly_close) com Tom Hanks (Shame on you Tom...) , seguido por ["O Leitor"](https://www.rottentomatoes.com/m/reader) e ["Chocolat"](https://www.rottentomatoes.com/m/1103080-chocolat).
+Parece que o filme com menor score dos críticos foi <a href="https://www.rottentomatoes.com/m/extremely_loud_and_incredibly_close" target="_blank">Extremely Loud & Incredibly Close</a> com Tom Hanks (Shame on you Tom...) , seguido por <a href="https://www.rottentomatoes.com/m/reader" target="_blank">O Leitor</a> e <a href="https://www.rottentomatoes.com/m/1103080-chocolat" target="_blank">Chocolat</a>.
 
 <div style="text-align: center;"> <img src="https://media.giphy.com/media/3oEjHWzZQaCrZW2aWs/giphy.gif" alt="Hanks" style="width: 400px;"/> </div>
 
 
-O único ganhador do Oscar que está no bottom 10 dos críticos é ["Crash"](https://www.rottentomatoes.com/m/1144992-crash), que como já foi dito em posts anteriores foi uma vitória bem discutível em 2006 quando disputou contra ["Munique"](https://www.rottentomatoes.com/m/munich), ["Capote"](https://www.rottentomatoes.com/m/1151898-capote), ["O Segredo de Brokeback Mountain"](https://www.rottentomatoes.com/m/brokeback_mountain) e ["Boa Noite e Boa Sorte"](https://www.rottentomatoes.com/m/1152019-good_night_and_good_luck).
+O único ganhador do Oscar que está no bottom 10 dos críticos é <a href="https://www.rottentomatoes.com/m/1144992-crash" target="_blank">Crash</a> , que como já foi dito em posts anteriores foi uma vitória bem discutível em 2006 quando disputou contra <a href="https://www.rottentomatoes.com/m/munich" target="_blank">Munique</a>, <a href="https://www.rottentomatoes.com/m/1151898-capote" target="_blank">Capote</a>, <a href="https://www.rottentomatoes.com/m/brokeback_mountain" target="_blank">O Segredo de Brokeback Mountain</a> e <a href="https://www.rottentomatoes.com/m/1152019-good_night_and_good_luck" target="_blank">Boa Noite e Boa Sorte</a>.
 
 Vamos ver agora com relação ao público?
 
@@ -704,7 +703,7 @@ df.sort_values(by='rotten_people',ascending=True).filter(items=['title','rotten_
 
 
 
-Parece que ["Árvore da Vida"](https://www.rottentomatoes.com/m/the_tree_of_life_2011) não foi muito curtido pelo público de maneira geral, outro ponto interessante é que nesse bottom 10 não temos nenhum ganhador de Oscar.
+Parece que <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a> não foi muito curtido pelo público de maneira geral, outro ponto interessante é que nesse bottom 10 não temos nenhum ganhador de Oscar.
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/LPGtFowd29hza/source.gif" alt="Hanks" style="width: 400px;"/> </div>
 
@@ -837,7 +836,7 @@ df.sort_values(by='diff',ascending=True).filter(items=['title','rotten_critic','
 
 
 
-Temos diferenças de 20 pontos!! Parece que público e críticos não tem a mesma visão sobre filmes como ["Chocolat"](https://www.rottentomatoes.com/m/1103080-chocolat), ["Uma mente brilhante"](https://www.rottentomatoes.com/m/beautiful_mind) e ["Gladiador"](https://www.rottentomatoes.com/m/gladiator). (Será que tem alguma ligação com o Russell Crowe?)
+Temos diferenças de 20 pontos!! Parece que público e críticos não tem a mesma visão sobre filmes como <a href="https://www.rottentomatoes.com/m/1103080-chocolat)" target="_blank">Chocolat</a>, <a href="https://www.rottentomatoes.com/m/beautiful_mind" target="_blank">Uma mente brilhante</a> e <a href="https://www.rottentomatoes.com/m/gladiator" target="_blank">Gladiador</a>. (Será que tem alguma ligação com o Russell Crowe?)
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/rvaQRHCzisFeo/giphy.gif" alt="Hanks" style="width: 400px;"/> </div>
 
@@ -965,7 +964,7 @@ df.sort_values(by='diff',ascending=False).filter(items=['title','rotten_critic',
 
 
 
-A maior diferença ficou com ["Árvore da Vida"](https://www.rottentomatoes.com/m/the_tree_of_life_2011), que não ganhou o Oscar mas merecia o prêmio "Fui ver porque tinha o Brad Pitt". E novamente podemos perceber que quando os críticos **gostam mas o público não a lista gerada não possui nenhum ganhador**. 
+A maior diferença ficou com <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a>, que não ganhou o Oscar mas merecia o prêmio "Fui ver porque tinha o Brad Pitt". E novamente podemos perceber que quando os críticos **gostam mas o público não a lista gerada não possui nenhum ganhador**. 
 
 Vamos fazer essa lista apenas para os filmes desse ano de 2017?? 
 
@@ -1100,7 +1099,7 @@ df[df["oscar_year"]== 2017].sort_values(by='diff',ascending=True).filter(items=[
 
 
 
-Por tudo que já vimos até agora nessa análise: ["Manchester by the sea"](https://www.rottentomatoes.com/m/manchester_by_the_sea) e ["Moonlight"](https://www.rottentomatoes.com/m/moonlight_2016) que eram considerados fortes concorrentes estão com chances menores. Já ["La la land"](https://www.rottentomatoes.com/m/la_la_land) que é o forte favorito ganha forças apesar de estar em 5 lugar em nota do público. 
+Por tudo que já vimos até agora nessa análise: <a href="https://www.rottentomatoes.com/m/manchester_by_the_sea" target="_blank">CManchester by the sea</a> e <a href="https://www.rottentomatoes.com/m/moonlight_2016" target="_blank">Moonlight</a> que eram considerados fortes concorrentes estão com chances menores. Já <a href="https://www.rottentomatoes.com/m/la_la_land" target="_blank">La la land</a> que é o forte favorito ganha forças apesar de estar em 5 lugar em nota do público. 
 
 Agora vamos fazer uma análise da média entre a nota dos críticos e do público e ver qual a correlação desse valor com a vitória do oscar?
 
@@ -1225,14 +1224,14 @@ df.sort_values(by='mean_rotten',ascending=False).filter(items=['title','rotten_c
 
 
 
-O filme com a média de público e crítica mais alta foi ["O Pianista"](https://www.rottentomatoes.com/m/pianist) (que deveria ter ganho em 2003), coincidentemente o segundo filme é também de 2003 e também não ganhou que foi ["Senhor dos Anéis e as duas torres"](https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers). 
+O filme com a média de público e crítica mais alta foi <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> (que deveria ter ganho em 2003), coincidentemente o segundo filme é também de 2003 e também não ganhou que foi <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">Senhor dos Anéis e as duas torres</a>. 
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/J3ZUjaOtahqM0/giphy.gif" alt="dog" style="width: 400px;"/> </div>
-<center>Imagem do filme o "O Pianista"</center>
+<center>Imagem retirada diretamente do filme "O Pianista"</center>
 
 Aparecem 2 filmes ganhadores de Oscar nesse top 10, dois que foram bem "disputados" em seus respectivos anos.
 
-Onde será que está [Chicago](https://www.rottentomatoes.com/m/chicago) (ganhador de 2003) com relação os filmes do mesmo ano?
+Onde será que está <a href="https://www.rottentomatoes.com/m/chicago" target="_blank">Chicago</a> (ganhador de 2003) com relação os filmes do mesmo ano?
 
 
 
@@ -1308,7 +1307,7 @@ df[df["oscar_year"]== 2003].sort_values(by='mean_rotten',ascending=False).filter
 
 
 
-Chicago aparece em 3 lugar, com 10 pontos de distância para ["O Pianista"](https://www.rottentomatoes.com/m/pianist) e ["Senhor dos Anéis e as duas torres"](https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers). Será que foi uma zebra?
+Chicago aparece em 3 lugar, com 10 pontos de distância para <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> e <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">"Senhor dos Anéis e as duas torres"</a>. Será que foi uma zebra?
 
 Vamos ver como fica essa mesma tabela com os filmes de 2017?
 
@@ -1421,7 +1420,7 @@ df[df["oscar_year"]== 2017].sort_values(by='mean_rotten',ascending=False).filter
 
 
 
-Primeiramente podemos perceber que a diferença entre os filmes é bem menor do que em 2003. De ["Hell or High Water"](https://www.rottentomatoes.com/m/hell_or_high_water) e ["Hidden Figures"](https://www.rottentomatoes.com/m/hidden_figures) para ["La la land"](https://www.rottentomatoes.com/m/la_la_land) temos 4 pontos de diferença apenas.
+Primeiramente podemos perceber que a diferença entre os filmes é bem menor do que em 2003. De <a href="https://www.rottentomatoes.com/m/hell_or_high_water" target="_blank">Hell or High Water</a> e <a href="https://www.rottentomatoes.com/m/hidden_figures" target="_blank">Hidden Figures</a> para <a href="https://www.rottentomatoes.com/m/la_la_land" target="_blank">La la land</a> temos 4 pontos de diferença apenas.
 
 
 ```python
@@ -1614,7 +1613,7 @@ df_by_year.head(20)
 
 
 
-Parece que a comparação dos scores do públicos em um dado ano pode ser um fator relevante para encontrarmos o possível vencedor, grande parte dos ganhadores está na posição 0 ou 1. A maior exceção é [Birdman](https://www.rottentomatoes.com/m/birdman_2014/) que estava em 7 lugar no ano de 2015!
+Parece que a comparação dos scores do públicos em um dado ano pode ser um fator relevante para encontrarmos o possível vencedor, grande parte dos ganhadores está na posição 0 ou 1. A maior exceção é <a href="https://www.rottentomatoes.com/m/birdman_2014" target="_blank">Birdman</a> que estava em 7 lugar no ano de 2015!
 
 
 Para normalizar a posição dos filmes, dado que não é um número fixo de concorrentes, criamos a coluna "rotten_position" que vai de 0.0 a 1.0, sendo 1.0 o filme que está em primeiro lugar em termos de Rotten Tomatoes no ano e 0.0 é o último da lista.
@@ -1765,7 +1764,7 @@ Vamos agora analisar a correlação dessas features com relação aos ganhadores
 
 Vamos remover o ano de 2017 pois não temos o resultado desse ano ainda.
 
-Para isso vamos usar a função [corr()](http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr.html) do Dataframe e selecionar apenas a coluna "winner" (Essa função retorna a correlação entre todas colunas com todas as outras).
+Para isso vamos usar a função <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr." target="_blank">corr()</a> do Dataframe e selecionar apenas a coluna "winner" (Essa função retorna a correlação entre todas colunas com todas as outras).
 
 
 
