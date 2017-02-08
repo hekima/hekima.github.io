@@ -1227,7 +1227,7 @@ df.sort_values(by='mean_rotten',ascending=False).filter(items=['title','rotten_c
 O filme com a média de público e crítica mais alta foi <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> (que deveria ter ganho em 2003), coincidentemente o segundo filme é também de 2003 e também não ganhou que foi <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">Senhor dos Anéis e as duas torres</a>. 
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/J3ZUjaOtahqM0/giphy.gif" alt="dog" style="width: 400px;"/> </div>
-<center>Imagem retirada diretamente do filme "O Pianista"</center>
+<center><p style="font-size:14px">Imagem retirada diretamente do filme "O Pianista"</a></center>
 
 Aparecem 2 filmes ganhadores de Oscar nesse top 10, dois que foram bem "disputados" em seus respectivos anos.
 
