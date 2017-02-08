@@ -19,7 +19,7 @@ author: Luiz Mendes
 authurl: https://www.linkedin.com/in/lfomendes
 ---
 
-Chegamos naquela época do ano, praticamente o carnaval dos cinéfilos, aquela época que a Meryl Streep vai ser indicada. A época das premiações "mais importantes" do mundo do cinema. 
+Finalmente chegamos àquela época do ano. Podemos chamá-la de “carnaval dos cinéfilos”, ou simplesmente de “aquela época em sabemos que a Meryl Streep será indicada”. A época das premiações mais importantes do mundo do cinema.
 
 <div style="text-align: center;"> <img src="https://media.giphy.com/media/OpAkQ1sPBnBUA/giphy.gif" alt="meryl" style="width: 300px;"/> </div>
 
@@ -29,21 +29,19 @@ Ano passado fiz dois posts sobre o mesmo assunto <a href="http://developers.heki
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/QJY9tY29IQGMU/giphy.gif" alt="Sadness" style="width: 400px;"/> </div>
 
-Mas eu sou brasileiro e não desisto nunca, fiquei pensando por qual motivo o algoritmo errou o resultado. Aparentemente ano passado foi um outlier, dado que nem o DGA nem o PGA bateram com o ganhador do Oscar.
+Mas eu sou brasileiro e não desisto nunca! Fiquei pensando por qual motivo o algoritmo errou o resultado. Aparentemente ano passado foi um outlier(ponto fora da curva), uma vez que nem o DGA nem o PGA bateram com o ganhador do Oscar.
 
-O Oscar tem um sistema peculiar de votação, que muitas vezes valoriza mais os filmes "menos" odiados, pensei então que os valores do <a href="http://rottentomatoes.com/" target="_blank">Rotten Tomatoes</a> poderiam refletir algo nesse sentido.
+O Oscar tem um sistema peculiar de votação, que muitas vezes dá maior valo aos filmes "menos" odiados. Pensei então que os valores do <a href="http://rottentomatoes.com/" target="_blank">Rotten Tomatoes</a> poderiam refletir algo nesse sentido.
 
 ## Como funciona o Rotten Tomatoes
 
+O Rotten Tomatoes é um site para avaliação de filmes. Seu sistema difere um pouco de sites como o <a href="https://www.imdb.com" target="_blank">IMDb</a>, pois cada pessoa ou crítico avalia o filme entre 1 e 5 estrelas, mas o site considera esse voto de forma binária – isto é, ou o filme é Fresh (Fresco) ou Rotten (Podre). O score final do filme é a porcentagem de notas Fresh que ele recebeu.
 
-O Rotten Tomatoes é um site para avaliação de filmes, seu sistema difere um pouco de sites como <a href="https://www.imdb.com" target="_blank">IMDb</a> pois cada pessoa ou crítico avalia o filme entre 1 e 5 estrelas, mas o site considera esse voto de uma forma binária, isto é, ou o filme é *Fresh* (Fresco) ou *Rotten* (Podre). O score final do filme é o % de notas Fresh que ele recebeu.
-
-Outra diferença do Rotten Tomatoes é que ele possui dois valores, um para críticos e outro para o público. Nesse post vamos analisar esses dois scores separadamente e em conjunto.
-
+Outra diferença do Rotten Tomatoes é que ele possui dois valores, sendo um para críticos e outro para o público. Nesse post, vamos analisar esses dois scores separadamente e em conjunto.
 
 ## Objetivo 
 
-Então, o objetivo desse post é demonstrar formas de analisar uma feature nova, como visualizar os valores, estudar relações, fazer transformações e quais insights elas podem gerar. Além disso, vou mostrar aqui um pouco de sobre <a href="https://www.mongodb.com" target="_blank"> MongoDB </a>, <a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a> e principalmente sobre a biblioteca <a href="http://pandas.pydata.org" target="_blank"> Pandas </a>.
+O objetivo desse post é demonstrar formas de analisar uma feature nova, como visualizar os valores, estudar relações, fazer transformações e quais insights elas podem gerar. Além disso, vou mostrar aqui um pouco de <a href="https://www.mongodb.com" target="_blank"> MongoDB </a>, <a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a> e principalmente da biblioteca <a href="http://pandas.pydata.org" target="_blank"> Pandas </a>.
 
 ## Preparativos
 Para ficar mais simples e didático decidimos utilizar o Jupyter Notebook, para fazer a instalação dele siga o tutorial descrito aqui: http://jupyter.readthedocs.org/en/latest/install.html 
@@ -51,11 +49,11 @@ Para ficar mais simples e didático decidimos utilizar o Jupyter Notebook, para 
 Para rodar o código ou acompanhar o post pelo Jupyter Notebook baixe o arquivo <a href="https://github.com/lfomendes/oscarPredictions/blob/master/Oscar%20Analysis%202017.ipynb"  target="_blank"> https://github.com/lfomendes/oscarPredictions/blob/master/Oscar%20Analysis%202017.ipynb </a>
 
 ## Base
-<a href="https://www.mongodb.com" target="_blank"> MongoDB </a>: O MongoDB é um banco de dados não relacional, ele é orientado a documentos e utiliza um formato chamado BSON, bem próximo ao JSON. Ele é bem simples de entender e utilizar.
+<a href="https://www.mongodb.com" target="_blank"> MongoDB </a>: banco de dados não relacional. Ele é orientado a documentos e utiliza um formato chamado BSON, bem próximo ao JSON. Ele é bem simples de entender e utilizar.
 
-<a href="http://pandas.pydata.org" target="_blank">Pandas</a>: Biblioteca de python para estrutura e análise de dados.
+<a href="http://pandas.pydata.org" target="_blank">Pandas</a>: biblioteca de python para estrutura e análise de dados.
 
-<a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a>: PyMongo é uma biblioteca em python para acessar o MongoDB.
+<a href="https://api.mongodb.com/python/current" target="_blank">PyMongo</a>: biblioteca em python para acessar o MongoDB.
 
 
 Vamos lá então?
@@ -64,7 +62,7 @@ Vamos lá então?
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/W3z1M5ek70Ztm/source.gif" alt="rambo" style="width: 300px;"/> </div>
 
 
-Nós vamos utilizar a mesma base de dados criadas nos posts do ano passado, vamos então criar um cliente e ligar a coleção chamada "movies".
+Nós vamos utilizar a mesma base de dados criadas nos posts do ano passado. Vamos então criar um cliente e ligar a coleção chamada "movies".
 
 
 ```python
@@ -78,7 +76,7 @@ movie_db = db.movies
 
 ## Atualizando vencedores dos prêmios
 
-Vamos agora atualizar no MongoDB quais os vencedores das principais premiações.
+Vamos agora atualizar no MongoDB os vencedores das principais premiações.
 
 
 ```python
@@ -152,7 +150,7 @@ for winner in bafta_winners:
 
 ## Carregamento dos dados
 
-Criamos um cursor utilizando uma consulta vazia, isto é, não estamos filtrando nada, todos filmes serão retornados. Logo depois, iteramos pelo cursor adicionando os documentos retornados na lista "movies".
+Criamos um cursor utilizando uma consulta vazia, isto é, não estamos filtrando nada e todos os filmes serão retornados. Logo depois, iteramos pelo cursor adicionando os documentos retornados na lista "movies".
 
 Depois disso, vamos criar um <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame." target="_blank">DataFrame</a> com todos os filmes e aplicar uma transformação em suas colunas.
 
@@ -207,10 +205,10 @@ print('\nA mediana do score relativo a nota dos críticos dos filmes disputando 
 df.sort_values(by='rotten_critic',ascending=False).filter(items=['title', 'rotten_critic', 'oscar_year','winner',]).head(10)
 ```
 
-    O score médio relativo a nota dos críticos dos filmes disputando Oscar de melhor filme foi
+    O score médio relativo à nota dos críticos dos filmes disputando Oscar de melhor filme foi
     88.4188034188
     
-    A mediana do score relativo a nota dos críticos dos filmes disputando Oscar de melhor filme foi
+    A mediana do score relativo à nota dos críticos dos filmes disputando Oscar de melhor filme foi
     91.0
 
 
@@ -305,7 +303,7 @@ df.sort_values(by='rotten_critic',ascending=False).filter(items=['title', 'rotte
 
 
 
-Podemos ver que dentre os 10 filmes de maior nota dos críticos só existe um ganhador de Oscar, que foi o "The Hurt Locker" com valor 98.
+Podemos ver que dentre os 10 filmes de maior nota dos críticos só existe um ganhador de Oscar. No caso, "The Hurt Locker" com valor 98.
 
 <div style="text-align: center;">  <img src="http://arts.columbia.edu/files/soa/hurt_locker_poster_m_0.jpg" alt="Drawing" style="width: 400px;"/> </div>
 
@@ -313,16 +311,16 @@ Agora vamos ordenar pela nota do público.
 
 
 ```python
-print('O score médio relativo a nota do público dos filmes disputando Oscar de melhor filme foi\n'+ str(df['rotten_people'].mean()))
+print('O score médio relativo à nota do público dos filmes disputando Oscar de melhor filme foi\n'+ str(df['rotten_people'].mean()))
 print('\nA mediana do score relativo a nota do público dos filmes disputando Oscar de melhor filme foi\n'+str(df['rotten_people'].median()))
 
 df.sort_values(by='rotten_people',ascending=False).filter(items=['title','rotten_people','oscar_year','winner']).head(10)
 ```
 
-    O score médio relativo a nota do público dos filmes disputando Oscar de melhor filme foi
+    O score médio relativo à nota do público dos filmes disputando Oscar de melhor filme foi
     84.3675213675
     
-    A mediana do score relativo a nota do público dos filmes disputando Oscar de melhor filme foi
+    A mediana do score relativo à nota do público dos filmes disputando Oscar de melhor filme foi
     85.0
 
 
@@ -419,7 +417,7 @@ df.sort_values(by='rotten_people',ascending=False).filter(items=['title','rotten
 
 Nesse caso, temos 2 vencedores dentre os 10 primeiros da lista do público (inclusive aquele "maldito" ganhador de 2016), mas será que isso é relevante?
 
-Parece também que o público avalia os filmes com valores **mais baixos**, com uma média quase 4 pontos mais baixa e uma mediana 6 pontos mais baixas. Além disso, podemos perceber que a mediana é bem alta (91) o que mostra que os filmes indicados tendem a ter uma avaliação boa pelos críticos.
+Parece também que o público avalia os filmes com valores **mais baixos**, com uma média quase 4 pontos mais baixa e uma mediana 6 pontos mais baixas. Além disso, podemos perceber que a mediana é bem alta (91), o que mostra que os filmes indicados tendem a ter uma avaliação boa pelos críticos.
 
 
 Podemos perceber também que os valores da média e da mediana são bem próximos, o que pode indicar que a distribuição seja parecida com uma normal.
@@ -438,7 +436,7 @@ plt.show()
 
 <div style="text-align: center;"> <img src="/images/output_16_0.png" alt="chart"> </div>
 
-Parece que existem alguns filmes com scores abaixo de 90 mas a grande maioria fica com valores acima de 91, inclusive alguns filmes com valores abaixo de 70, mas vamos analisá-los mais a frente.
+Parece que existem alguns filmes com scores abaixo de 90, mas a grande maioria fica com valores acima de 91 (inclusive alguns filmes com valores abaixo de 70).
 
 
 ```python
@@ -457,7 +455,7 @@ plt.show()
 
 Já no gráfico relativo ao público vemos um comportamento mais regular, com um pico peculiar no valor 86, variando mais entre 79 e 91. 
 
-Agora que já analisamos a diferença entre o score do crítico e do público, vamos ver se existe uma diferença entre os ganhadores do oscar e os outros?
+Agora que já analisamos a diferença entre o score do crítico e do público, vamos ver se existe uma diferença entre os ganhadores do Oscar e os outros.
 
 Vamos criar então dois Dataframes, um com todos ganhadores do Oscar e outros com os perdedores.
 
@@ -496,11 +494,11 @@ print('Perdedores mediana: '+ str(losers['rotten_people'].median()))
     Perdedores mediana: 84.0
 
 
-Parece que o score do público seria um "termômetro" mais interessante do que o score dos críticos e parece que utilizar esses valores como feature pode ser bom para o modelo final. Imagino que fazer uma normalização dos valores seja importante.
+Parece que o score do público é um "termômetro" mais interessante do que o score dos críticos. Além disso, aparentemente utilizar esses valores como feature pode ser bom para o modelo final. Imagino que fazer uma normalização dos valores seja importante.
 
 Vamos agora analisar os extremos para ver os **outliers**?
 
-Primeiramente vamos ver quais os **"piores"** filmes a disputar a estatueta?
+Primeiramente veremos quais os **"piores"** filmes a disputar a estatueta.
 
 
 ```python
@@ -598,14 +596,14 @@ df.sort_values(by='rotten_critic',ascending=True).filter(items=['title','rotten_
 
 
 
-Parece que o filme com menor score dos críticos foi <a href="https://www.rottentomatoes.com/m/extremely_loud_and_incredibly_close" target="_blank">Extremely Loud & Incredibly Close</a> com Tom Hanks (Shame on you Tom...) , seguido por <a href="https://www.rottentomatoes.com/m/reader" target="_blank">O Leitor</a> e <a href="https://www.rottentomatoes.com/m/1103080-chocolat" target="_blank">Chocolat</a>.
+Parece que o filme com menor score dos críticos foi <a href="https://www.rottentomatoes.com/m/extremely_loud_and_incredibly_close" target="_blank">Extremely Loud & Incredibly Close</a>, com Tom Hanks (<span style="text-decoration: line-through;" >Shame on you Tom...</span>) , seguido por <a href="https://www.rottentomatoes.com/m/reader" target="_blank">O Leitor</a> e <a href="https://www.rottentomatoes.com/m/1103080-chocolat" target="_blank">Chocolat</a>.
 
 <div style="text-align: center;"> <img src="https://media.giphy.com/media/3oEjHWzZQaCrZW2aWs/giphy.gif" alt="Hanks" style="width: 400px;"/> </div>
 
 
-O único ganhador do Oscar que está no bottom 10 dos críticos é <a href="https://www.rottentomatoes.com/m/1144992-crash" target="_blank">Crash</a> , que como já foi dito em posts anteriores foi uma vitória bem discutível em 2006 quando disputou contra <a href="https://www.rottentomatoes.com/m/munich" target="_blank">Munique</a>, <a href="https://www.rottentomatoes.com/m/1151898-capote" target="_blank">Capote</a>, <a href="https://www.rottentomatoes.com/m/brokeback_mountain" target="_blank">O Segredo de Brokeback Mountain</a> e <a href="https://www.rottentomatoes.com/m/1152019-good_night_and_good_luck" target="_blank">Boa Noite e Boa Sorte</a>.
+O único ganhador do Oscar que está no bottom 10 dos críticos é <a href="https://www.rottentomatoes.com/m/1144992-crash" target="_blank">Crash</a> , que como já foi dito em posts anteriores teve uma vitória bem discutível em 2006 quando disputou contra <a href="https://www.rottentomatoes.com/m/munich" target="_blank">Munique</a>, <a href="https://www.rottentomatoes.com/m/1151898-capote" target="_blank">Capote</a>, <a href="https://www.rottentomatoes.com/m/brokeback_mountain" target="_blank">O Segredo de Brokeback Mountain</a> e <a href="https://www.rottentomatoes.com/m/1152019-good_night_and_good_luck" target="_blank">Boa Noite e Boa Sorte</a>.
 
-Vamos ver agora com relação ao público?
+Focaremos agora em  relação ao público:
 
 
 ```python
@@ -703,13 +701,13 @@ df.sort_values(by='rotten_people',ascending=True).filter(items=['title','rotten_
 
 
 
-Parece que <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a> não foi muito curtido pelo público de maneira geral, outro ponto interessante é que nesse bottom 10 não temos nenhum ganhador de Oscar.
+Parece que <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a> não foi muito curtido pelo público de maneira geral. Outro ponto interessante é que nesse bottom 10 não temos nenhum ganhador de Oscar.
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/LPGtFowd29hza/source.gif" alt="Hanks" style="width: 400px;"/> </div>
 
 O quão diferente será que é a nota do público com a dos críticos para o mesmo filme? 
 
-Vamos ver os casos extremos relativos a essa diferença, vamos criar uma nvoa coluna que é a nota do crítico menos a nota do público.
+Vamos ver os casos extremos relativos a essa diferença criando uma nova coluna que é a nota do crítico menos a nota do público.
 
 
 ```python
@@ -836,7 +834,7 @@ df.sort_values(by='diff',ascending=True).filter(items=['title','rotten_critic','
 
 
 
-Temos diferenças de 20 pontos!! Parece que público e críticos não tem a mesma visão sobre filmes como <a href="https://www.rottentomatoes.com/m/1103080-chocolat)" target="_blank">Chocolat</a>, <a href="https://www.rottentomatoes.com/m/beautiful_mind" target="_blank">Uma mente brilhante</a> e <a href="https://www.rottentomatoes.com/m/gladiator" target="_blank">Gladiador</a>. (Será que tem alguma ligação com o Russell Crowe?)
+Temos diferenças de 20 pontos!! Parece que público e críticos não têm a mesma visão sobre filmes como <a href="https://www.rottentomatoes.com/m/1103080-chocolat)" target="_blank">Chocolat</a>, <a href="https://www.rottentomatoes.com/m/beautiful_mind" target="_blank">Uma mente brilhante</a> e <a href="https://www.rottentomatoes.com/m/gladiator" target="_blank">Gladiador</a> (será que tem alguma ligação com o Russell Crowe?).
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/rvaQRHCzisFeo/giphy.gif" alt="Hanks" style="width: 400px;"/> </div>
 
@@ -964,11 +962,11 @@ df.sort_values(by='diff',ascending=False).filter(items=['title','rotten_critic',
 
 
 
-A maior diferença ficou com <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a>, que não ganhou o Oscar mas merecia o prêmio "Fui ver porque tinha o Brad Pitt". E novamente podemos perceber que quando os críticos **gostam mas o público não a lista gerada não possui nenhum ganhador**. 
+A maior diferença ficou com <a href="https://www.rottentomatoes.com/m/the_tree_of_life_2011" target="_blank">Árvore da Vida</a>, que não ganhou o Oscar mas merecia o prêmio "Fui ver porque tinha o Brad Pitt". E novamente podemos perceber que quando os críticos **gostam mas o público não, a lista gerada não possui nenhum ganhador**. 
 
 Vamos fazer essa lista apenas para os filmes desse ano de 2017?? 
 
-Então vamos listar aqui pela maior diferença entre público e críticos.
+Listando aqui pela maior diferença entre público e críticos.
 
 
 ```python
@@ -1099,9 +1097,9 @@ df[df["oscar_year"]== 2017].sort_values(by='diff',ascending=True).filter(items=[
 
 
 
-Por tudo que já vimos até agora nessa análise: <a href="https://www.rottentomatoes.com/m/manchester_by_the_sea" target="_blank">CManchester by the sea</a> e <a href="https://www.rottentomatoes.com/m/moonlight_2016" target="_blank">Moonlight</a> que eram considerados fortes concorrentes estão com chances menores. Já <a href="https://www.rottentomatoes.com/m/la_la_land" target="_blank">La la land</a> que é o forte favorito ganha forças apesar de estar em 5 lugar em nota do público. 
+Por tudo que já vimos até agora nessa análise, <a href="https://www.rottentomatoes.com/m/manchester_by_the_sea" target="_blank">Manchester by the sea</a> e <a href="https://www.rottentomatoes.com/m/moonlight_2016" target="_blank">Moonlight</a>, que eram considerados fortes concorrentes estão com chances menores. Já <a href="https://www.rottentomatoes.com/m/la_la_land" target="_blank">La la land</a> que é o forte favorito ganha forças apesar de estar em 5º lugar em nota do público. 
 
-Agora vamos fazer uma análise da média entre a nota dos críticos e do público e ver qual a correlação desse valor com a vitória do oscar?
+Agora faremos uma análise da média entre a nota dos críticos e do público e ver qual é a correlação desse valor com a vitória do Oscar?
 
 
 
@@ -1223,15 +1221,14 @@ df.sort_values(by='mean_rotten',ascending=False).filter(items=['title','rotten_c
 </div>
 
 
-
-O filme com a média de público e crítica mais alta foi <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> (que deveria ter ganho em 2003), coincidentemente o segundo filme é também de 2003 e também não ganhou que foi <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">Senhor dos Anéis e as duas torres</a>. 
+O filme com a média de público e crítica mais alta foi <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">"O Pianista"</a> (que deveria ter ganho em 2003). O segundo filme foi <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">"Senhor dos Anéis e as duas torres"</a>, que coincidentemente também de 2003 – e também não ganhou.
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/J3ZUjaOtahqM0/giphy.gif" alt="dog" style="width: 400px;"/> </div>
 <center><p style="font-size:14px">Imagem retirada diretamente do filme "O Pianista"</a></center>
 
-Aparecem 2 filmes ganhadores de Oscar nesse top 10, dois que foram bem "disputados" em seus respectivos anos.
+Aparecem dois filmes ganhadores de Oscar nesse top 10 e que foram bem "disputados" em seus respectivos anos.
 
-Onde será que está <a href="https://www.rottentomatoes.com/m/chicago" target="_blank">Chicago</a> (ganhador de 2003) com relação os filmes do mesmo ano?
+Onde será que está <a href="https://www.rottentomatoes.com/m/chicago" target="_blank">Chicago</a> (ganhador de 2003) com relação aos filmes do mesmo ano?
 
 
 
@@ -1307,9 +1304,9 @@ df[df["oscar_year"]== 2003].sort_values(by='mean_rotten',ascending=False).filter
 
 
 
-Chicago aparece em 3 lugar, com 10 pontos de distância para <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> e <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">"Senhor dos Anéis e as duas torres"</a>. Será que foi uma zebra?
+Chicago aparece em 3º lugar, com 10 pontos de distância para <a href="https://www.rottentomatoes.com/m/pianist" target="_blank">O Pianista</a> e <a href="https://www.rottentomatoes.com/m/the_lord_of_the_rings_the_two_towers" target="_blank">"Senhor dos Anéis: As Duas Torres"</a>. Será que foi uma zebra?
 
-Vamos ver como fica essa mesma tabela com os filmes de 2017?
+Vamos ver como fica essa mesma tabela com os filmes de 2017.
 
 
 ```python
@@ -1613,10 +1610,10 @@ df_by_year.head(20)
 
 
 
-Parece que a comparação dos scores do públicos em um dado ano pode ser um fator relevante para encontrarmos o possível vencedor, grande parte dos ganhadores está na posição 0 ou 1. A maior exceção é <a href="https://www.rottentomatoes.com/m/birdman_2014" target="_blank">Birdman</a> que estava em 7 lugar no ano de 2015!
+Parece que a comparação dos scores do público em um dado ano pode ser um fator relevante para encontrarmos o possível vencedor, uma vez que grande parte dos ganhadores está na posições 0 ou 1. A maior exceção é <a href="https://www.rottentomatoes.com/m/birdman_2014" target="_blank">Birdman</a> que estava em 7º lugar no ano de 2015!
 
 
-Para normalizar a posição dos filmes, dado que não é um número fixo de concorrentes, criamos a coluna "rotten_position" que vai de 0.0 a 1.0, sendo 1.0 o filme que está em primeiro lugar em termos de Rotten Tomatoes no ano e 0.0 é o último da lista.
+Para normalizar a posição dos filmes, dado que não é um número fixo de concorrentes, criamos a coluna "rotten_position", que vai de 0.0 a 1.0 - sendo 1.0 o filme que está em primeiro lugar em termos de Rotten Tomatoes no ano e 0.0 o último da lista.
 
 Vamos ver como fica essa feature para os ganhadores do Oscar.
 
@@ -1760,12 +1757,9 @@ df[df["oscar_year"]!= 2017].filter(items=['title','winner','rotten_position','os
 
 ## Correlação
 
-Vamos agora analisar a correlação dessas features com relação aos ganhadores?
+Vamos agora analisar a correlação dessas features com relação aos ganhadores.
 
-Vamos remover o ano de 2017 pois não temos o resultado desse ano ainda.
-
-Para isso vamos usar a função <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr." target="_blank">corr()</a> do Dataframe e selecionar apenas a coluna "winner" (Essa função retorna a correlação entre todas colunas com todas as outras).
-
+Removeremos o ano de 2017, pois não temos o seu resultado ainda. Para isso vamos usar a função <a href="http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.corr." target="_blank">corr()</a> do Dataframe e selecionar apenas a coluna “winner” (essa função retorna a correlação entre todas as colunas com todas as outras).
 
 
 ```python
@@ -1866,18 +1860,17 @@ df[df["oscar_year"]!= 2017].corr(method='spearman', min_periods=1).filter(items=
 
 
 
-Como era esperado o DGA e o PGA são as premiações mais correlacionadas com os ganhadores do Oscar. E é importante salientar que os Golden Globes estão com uma correlação baixíssima.
+Como era esperado, o DGA e o PGA são as premiações mais correlacionadas com os ganhadores do Oscar. E é importante salientar que os Golden Globes estão com uma correlação baixíssima.
+Das novas features adicionadas, parece que o rotten position relativo ao score do público é a mais correlacionada, sendo a melhor feature depois dos principais prêmios. Mas, mesmo assim, 0.35 é um valor baixo. Contudo, percebam também que a posição no ano em questão (rotten_position) é melhor do que o valor bruto do score (rotten_people).
 
-Das novas features adicionadas parece que o rotten position relativo ao score do público é a mais correlacionada, sendo a melhor feature depois dos principais prêmios, mas mesmo assim 0.35 é um valor baixo. Mas percebam também que a posição no ano em questão (rotten_position) é melhor do que o valor bruto do score (rotten_people).
-
-Outra observação é que a correlação do score do público é muito próxima a nota no IMDB, apesar dos dois usarem um sistema de rating um pouco diferente.
+Outra observação é que a correlação do score do público é muito próxima à nota no IMDB, apesar de os dois usarem um sistema de rating um pouco diferente.
 
 ## Conclusão
 
-Gostaria de agradecer a todos que duraram até aqui, depois de tantas tabelas e **ótimos** gifs animados. Queria brincar um pouco com esses dados do Rotten Tomatoes e espero que esse post ajude algumas pessoas a entender um pouco mais sobre análise de dados.
+Gostaria de agradecer a todos que ficaram até aqui, depois de tantas tabelas e ótimos gifs animados. Queria brincar um pouco com esses dados do Rotten Tomatoes e espero que esse post ajude-os a entender um pouco mais sobre análise de dados.
 
-No próximo post vamos tentar novamente "adivinhar" o ganhador do Oscar (*La la land... Cof Cof*) desse ano de 2017, agora adicionando essas novas features =D
+No próximo post, tentaremos novamente “adivinhar” o ganhador do Oscar (La la land) do ano de 2017, agora adicionando essas novas features. =D
 
-Abraços, bons filmes (plágio) e até a próxima
+Abraços, bons filmes (plágio do <a href="https://twitter.com/pablovillaca" target="_blank">@pablovillaca</a>) e até a próxima
 
 <div style="text-align: center;"> <img src="https://media.giphy.com/media/l41lQLVaDm8he8Gk0/giphy.gif" alt="paul" style="width: 400px;"/> </div>
