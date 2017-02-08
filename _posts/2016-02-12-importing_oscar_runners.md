@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Brincando com dados: Ganhadores do Oscar Parte 1"
+title: "Brincando com dados: Vencedores do Oscar Parte 1"
 date:       2016-02-11 19:44:19
 summary: O objetivo desses posts intitulados "Brincando com os dados" é dar exemplos de como importar, limpar e analisar dados. Nesse primeiro exemplo iremos importar no MongoDB os dados do IMDb dos filmes indicados a categoria de melhor filme do Oscar.
 categories:
@@ -27,7 +27,7 @@ authurl: https://twitter.com/lfmendes
 
 Olá a todos, esse post será o primeiro de muitos (como diria a minhoca do worms) sobre análise de dados. O objetivo desses posts intitulados “Brincando com os dados” é dar exemplos de como importar, limpar, analisar dados e muito mais.
 
-O assunto desse primeiro exemplo vai ser “Ganhadores do Oscar” e o objetivo dele é ser bem simples e didático, mostrar alguns conceitos e exemplos de ferramentas e bibliotecas. 
+O assunto desse primeiro exemplo vai ser “vencedores do Oscar” e o objetivo dele é ser bem simples e didático, mostrar alguns conceitos e exemplos de ferramentas e bibliotecas. 
 
 A primeira parte será sobre como importar a base de dados. Irei mostrar como utilizar a biblioteca <a href="http://imdbpy.sourceforge.net" target="_blank">IMDbPY</a> para buscar filmes e o 
 <a href="https://api.mongodb.org/python/current/" target="_blank">PyMongo</a> para salvar os dados no <a href="https://www.mongodb.org/" target="_blank">MongoDB</a>.
@@ -351,7 +351,7 @@ A função *ia.update()* é utilizada para buscar mais campos de cada filme.
 A api retorna um JSON representando o filme, utilizamos então a função *map_movie_to_dic()* para transformar ela em um dicionário de python. Esse dicionário pode ser salvo diretamente na coleção 'movies' utilizando a função **save** do pyMongo (sim, é simples assim).
 
 
-## Fazendo atualização dos ganhadores do Oscar
+## Fazendo atualização dos vencedores do Oscar
 
 
 ```python
@@ -363,7 +363,7 @@ oscar_winners = ['Gladiator', 'A Beautiful Mind','Chicago', 'The Lord of the Rin
 
 ```
 
-Primeiramente, listaremos aqui todos ganhadores do Oscar de melhor filme de 2000 a 2015.
+Primeiramente, listaremos aqui todos vencedores do Oscar de melhor filme de 2000 a 2015.
 
 
 ```python
@@ -401,7 +401,7 @@ for document in cursor:
     Gladiator
 
 
-Agora iteramos pela lista de ganhadores e realizamos um update no documento adicionando um novo campo chamado "winner", esse campo será *True* se esse filme ganhou o oscar e não existirá se ele não ganhou.
+Agora iteramos pela lista de vencedores e realizamos um update no documento adicionando um novo campo chamado "winner", esse campo será *True* se esse filme ganhou o oscar e não existirá se ele não ganhou.
 
 O update no pymongo é simples: o primeiro parâmetro é a consulta que será realizada, no nosso caso, queremos o filme que o campo 'title' seja igual ao título do filme que ganhou o oscar. O segundo parâmetro é a operação de atualização que será realizada nos documentos que foram buscados pela consulta, nesse caso, estamos usando o operador de *$set* para atualizar/criar um campo chamado 'winner' e colocando o valor True para ele.
 
@@ -440,7 +440,7 @@ Por último, vamos listar todos os filmes de 2013 seguido pelo ganhador do mesmo
 
 Finalizando esse código temos um banco de dados no Mongodb chamado **"imdb"** com uma coleção **"movies"** com todos os filmes indicados ao Oscar de melhor de 2000 a 2016.
 
-No próximo post iremos utilizar esses filmes para analisar os dados e tentar descobrir peculiaridades e padrões entre os filmes ganhadores.
+No próximo post iremos utilizar esses filmes para analisar os dados e tentar descobrir peculiaridades e padrões entre os filmes vencedores.
 
 Abraços e até o próximo
 

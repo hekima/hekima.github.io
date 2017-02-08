@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Brincando com dados: Ganhadores do Oscar Parte 2"
+title: "Brincando com dados: Vencedores do Oscar Parte 2"
 date:       2016-02-11 19:44:19
 summary: Na parte 2 vamos analisar os dados dos indicados ao prêmio de melhor filme dos últimos 15 anos e tentar prever o ganhador do ano de 2016.
 categories:
@@ -311,9 +311,9 @@ oscar_winners.show(view="Summary")
 
 Agora vamos utilizar outra funcionalidade muito legal do SFrame. É possível utilizar um filtro, retornando outro SFrame em que os valores respeitam a expressão boleana.
 
-Nesse caso, utilizamos a expressão boleana "movies_sframe['winner'] == 1" para filtrar apenas os ganhadores do Oscar, logo depois, utilizamos denovo a função show(), agora nesse novo SFrame.
+Nesse caso, utilizamos a expressão boleana "movies_sframe['winner'] == 1" para filtrar apenas os vencedores do Oscar, logo depois, utilizamos denovo a função show(), agora nesse novo SFrame.
 
-Analisando um pouco esse sumário dos filmes ganhadores do oscar podemos perceber que filmes de Drama dominam, além disso, é interessante analisar um pouco as notas no imdb: A média e a mediana ficaram em 8, o filme de menor nota teve 7.2. Qual será que foi esse filme? Vamos verificar.
+Analisando um pouco esse sumário dos filmes vencedores do oscar podemos perceber que filmes de Drama dominam, além disso, é interessante analisar um pouco as notas no imdb: A média e a mediana ficaram em 8, o filme de menor nota teve 7.2. Qual será que foi esse filme? Vamos verificar.
 
 
 ```python
@@ -328,7 +328,7 @@ print "Ano: " + str(oscar_winners[oscar_winners['user_rating'] == 7.2]['oscar_ye
 
 
 Utilizamos denovo o filtro, agora buscando qual o primeiro filme com valor de "user_rating" igual a 7.2, No caso, foi o filme Chicago do Oscar de 2003. 
-Vamos agora ver o filme de maior avaliação dos ganhadores.
+Vamos agora ver o filme de maior avaliação dos vencedores.
 
 
 ```python
@@ -347,8 +347,8 @@ print "Ano: " + str(oscar_winners[oscar_winners['user_rating'] == 8.9]['oscar_ye
 
 Como nosso querido Frodo pode mostrar com seu sorriso, o filme de maior nota que levou a estatueta foi "Senhor dos Anéis. Retorno do Rei".
 
-Vamos agora analisar algumas features dos ganhadores do oscar e comparar com todos os filmes que concorreram mas NÃO ganharam. Para isso vamos usar a função show() relativo ao tipo <a href="https://dato.com/products/create/docs/generated/graphlab.SArray.html?highlight=sarray" target="_blank">SArray</a>. No caso o show padrão mostra dados como mínimo, máximo, média e um gráfico com os valores.
-Vamos visualizar então agora os ratings dos concorrentes e depois dos ganhadores.
+Vamos agora analisar algumas features dos vencedores do oscar e comparar com todos os filmes que concorreram mas NÃO ganharam. Para isso vamos usar a função show() relativo ao tipo <a href="https://dato.com/products/create/docs/generated/graphlab.SArray.html?highlight=sarray" target="_blank">SArray</a>. No caso o show padrão mostra dados como mínimo, máximo, média e um gráfico com os valores.
+Vamos visualizar então agora os ratings dos concorrentes e depois dos vencedores.
 
 
 ```python
@@ -364,7 +364,7 @@ oscar_winners['user_rating'].show()
 
 
 
-Existe uma pequena diferença entre todos os filmes que não ganharam com os que levaram a estatueta, aparentemente os ganhadores do oscar possuem uma nota mais alta do que os que não ganharam. ( média e mediana maiores no segundo caso)  
+Existe uma pequena diferença entre todos os filmes que não ganharam com os que levaram a estatueta, aparentemente os vencedores do oscar possuem uma nota mais alta do que os que não ganharam. ( média e mediana maiores no segundo caso)  
 Agora vamos comparar o tempo de duração dos filmes que concorreram com os que ganharam. Mas antes disso, precisamos trabalhar nos dados, alguns tempos estão em formato string do tipo "Extended cut: 130". 
 
 
@@ -478,9 +478,9 @@ movies_sframe['pga_winner'] = movies_sframe.apply(lambda x: 1 if x['title'] in p
 
 Utilizamos as premiações mais reconhecidas por serem "termômetros" do oscar e o Golden Globes.
 
-Utilizamos nessa parte a função "apply()" do SFrame, ela aplica uma operação a cada elemento do SFrame, retornando um SFrame. Nesse caso, nós verificamos se o título do filme atual está na lista de ganhadores de cada prêmio e adicionamos 1 se sim e 0 se não. 
+Utilizamos nessa parte a função "apply()" do SFrame, ela aplica uma operação a cada elemento do SFrame, retornando um SFrame. Nesse caso, nós verificamos se o título do filme atual está na lista de vencedores de cada prêmio e adicionamos 1 se sim e 0 se não. 
 
-Na pŕoxima etapa vamos analisar quantas vezes os ganhadores coincidiram, isto é, quantas vezes cada premiação coincidiu com o Oscar.
+Na pŕoxima etapa vamos analisar quantas vezes os vencedores coincidiram, isto é, quantas vezes cada premiação coincidiu com o Oscar.
 
 
 
@@ -536,7 +536,7 @@ Os piores são:
 * NYFCC: 4 ocasiões
 * Golden Globes: 7 ocasiões (contando aqui melhor filme de drama E comédia e musical)
 
-Agora vamos fazer um pequeno experimento, vamos usar os ganhadores dessas premiações e alguns valores dos filmes para tentar prever a probabilidade de cada indicado ser o vencedor do Oscar.
+Agora vamos fazer um pequeno experimento, vamos usar os vencedores dessas premiações e alguns valores dos filmes para tentar prever a probabilidade de cada indicado ser o vencedor do Oscar.
 
 Para os atributos, utilizei as premiações que deram o melhor resultado e alguns campos que já existem em nossa tabela.
 

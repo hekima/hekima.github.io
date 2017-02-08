@@ -25,7 +25,7 @@ Finalmente chegamos àquela época do ano. Podemos chamá-la de “carnaval dos 
 
 Então vamos aproveitar essa vibe cinematográfica para fazer umas análises?
 
-Ano passado fiz dois posts sobre o mesmo assunto <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/importing_oscar_runners/" target="_blank">Brincando com dados: Ganhadores do Oscar Parte 1</a> e <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/oscar-analysis/" target="_blank">Brincando com dados: Ganhadores do Oscar Parte 2</a> . Neles eu fiz algumas análises e tentei prever alguns prêmios. Acertei os ganhadores de melhor ator e melhor atriz mas errei a previsão do ganhador de melhor filme... =(
+Ano passado fiz dois posts sobre o mesmo assunto <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/importing_oscar_runners/" target="_blank">Brincando com dados: Vencedores do Oscar Parte 1</a> e <a href="http://developers.hekima.com/data-science/brincando-com-dados/2016/02/11/oscar-analysis/" target="_blank">Brincando com dados: Vencedores do Oscar Parte 2</a> . Neles eu fiz algumas análises e tentei prever alguns prêmios. Acertei os ganhadores de melhor ator e melhor atriz mas errei a previsão do ganhador de melhor filme... =(
 
 <div style="text-align: center;">  <img src="https://media.giphy.com/media/QJY9tY29IQGMU/giphy.gif" alt="Sadness" style="width: 400px;"/> </div>
 
