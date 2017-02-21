@@ -897,7 +897,7 @@ print(X_2017)
      [ 0.  1.  0.  0.  0.  1.]]
 
 
-Utilizei menos features para atores, em relação às atrizes. Como eu busquei os dados de atrizes depois, acabei tendo novas idéias no caminho, então os atores ficaram apenas com as features de premiação.
+Utilizei menos features para atores, em relação às atrizes. Como eu busquei os dados de atrizes depois, acabei tendo novas ideias no caminho, então os atores ficaram apenas com as features de premiação.
 
 
 ```python
