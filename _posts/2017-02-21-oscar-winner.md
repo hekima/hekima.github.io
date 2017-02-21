@@ -27,7 +27,7 @@ authurl: https://www.linkedin.com/in/lfomendes
 ---
 Olá a todos!
 
-No <a href="http://developers.hekima.com/machine%20learning/python/2017/02/07/oscar-rotten/" target="_blank">último post</a> post analisamos as features do <a href="http://rottentomatoes.com/" target="_blank">Rotten Tomatoes</a>. Agora, vamos juntar todas as features relativas as principais premiações com as geradas utilizando os valores do Rotten Tomatoes e tentar prever quais serão os ganhadores dos Oscar de “Melhor Filme”, “Melhor Atriz” e “Melhor Ator”.
+No <a href="http://developers.hekima.com/machine%20learning/python/2017/02/07/oscar-rotten/" target="_blank">último post</a> analisamos as features do <a href="http://rottentomatoes.com/" target="_blank">Rotten Tomatoes</a>. Agora, vamos juntar todas as features relativas as principais premiações com as geradas utilizando os valores do Rotten Tomatoes e tentar prever quais serão os ganhadores dos Oscar de “Melhor Filme”, “Melhor Atriz” e “Melhor Ator”.
 
 <div style="text-align: center;"> <img src="https://media.giphy.com/media/FJIYU0hUj6IcE/giphy.gif" alt="et" style="width: 400px;"/> </div>
 
@@ -381,7 +381,7 @@ df_with_features[df_with_features['pga_and_dga']].filter(items=['title','pga_and
 
 Apenas o filme  <a href="https://www.rottentomatoes.com/m/brokeback_mountain" target="_blank">O Segredo de Brokeback Mountain</a> "conseguiu" não ganhar o Oscar tendo sido o vitorioso nessas duas premiações.
 
-Isso já Isso já mostra que o “La la land” é realmente o favorito…. Mas espera um momento. “La la land” ganhou também o WGA, o BAFTA, o Golden Globe e o NYFCC.
+Isso já mostra que o “La la land” é realmente o favorito…. Mas espera um momento. “La la land” ganhou também o WGA, o BAFTA, o Golden Globe e o NYFCC.
 
 
 ```python
