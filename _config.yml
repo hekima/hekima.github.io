@@ -6,39 +6,40 @@ description: ""
 baseurl:     ""
 #url:         "http://hekima.github.io"
 url:         "http://hekima.com"
-comments: true
+
+#comments: true
 
 # Google analytics
-google_analytics: UA-57052292-1
+#google_analytics: UA-57052292-1
 
 # Optional features
-animated:           true
-show_related_posts: true
-show_post_footers:  false
+#animated:           true
+#show_related_posts: true
+#show_post_footers:  false
 
 # Social icons
-show_social_icons: false
-github_username: hekima
-twitter_username: hekima
-google_plus_id: 
-linkedin_username:
-bitcoin_url:
-paypal_url:
-flattr_button:
+#show_social_icons: false
+#github_username: hekima
+#twitter_username: hekima
+#google_plus_id: 
+#linkedin_username:
+#bitcoin_url:
+#paypal_url:
+#flattr_button:
 
 # Build settings
-markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+#markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 #markdown:     kramdown
-permalink:    pretty
+#permalink:    pretty
 #pygments: true
-markdown: redcarpet
-redcarpet:
-  extensions: ["smart", "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
-paginate:     3
-sass:
-  compressed: true
+#markdown: redcarpet
+#redcarpet:
+#  extensions: ["smart", "no_intra_emphasis", "fenced_code_blocks", "autolink", "tables", "with_toc_data"]
+#paginate:     3
+#sass:
+#  compressed: true
 
 # Disqus
-gems :
-    - jekyll-paginate
+#gems :
+#    - jekyll-paginate
 
