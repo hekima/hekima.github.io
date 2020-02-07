@@ -1,21 +1,62 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="home">
+<head>
+  <title>Hekima</title>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
+    <meta name="theme-color" content="#34495e">
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <link href="/bulmaswatch.min.css" rel="stylesheet" />
+  <style>
+    body {
+        margin-top: 60px;
+    }
 
-  <div class="posts">
-    {% for post in paginator.posts %}
-      <div class="post">
-        <a href="{{ post.url | prepend: site.baseurl }}" class="post-link">
-          <p class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</p>
-          <h3 class="h2 post-title">{{ post.title }}</h3>
-          <p class="post-summary">{{ post.summary }}</p>
-        </a>
-      </div>
-    {% endfor %}
-  </div>
+    p {
+        margin-top: 12px;
+    }
 
-  {% include pagination.html %}
-  
-</div>
+    .hero .container {
+      width: 90%;
+    }
+  </style>
+</head>
+
+<body class="theme-page">
+    <div class="container">
+    <div class="title has-text-centered">
+        <img src="hekima.png" width="20%" height="20%"></img>
+    </div>
+
+    <p class="is-size-5">
+É com alegria que compartilhamos que a Hekima chega em 2020 encerrando uma jornada incrível, que durou mais de uma década! Com muito orgulho, seremos agora parte do iFood, líder na América Latina do segmento Food Delivery, onde iremos contribuir para melhorar ainda mais as áreas de Data Science e Inteligência Artificial da empresa.
+</p>
+
+<p class="is-size-5">
+Estamos imensamente felizes e sentindo muita gratidão de termos construído um negócio único, com uma cultura muito forte e com pessoas sensacionais. Aqui compartilhamos desafios, alegrias e, sobretudo, aprendizados, que iremos carregar pra sempre!   </p>
+
+    <p class="is-size-5">
+Nós somos o resultado da união entre estudantes de Ciência da Computação, com muita vontade de empreender, do guru e sênior nerd Ivan Moura Campos, e da publicitária Rachel Horta, à época sócia da Mapa Digital. Dali surgiu um projeto que evoluiu de uma plataforma de mídias digitais chamada Zahpee até os projetos complexos de Inteligência Artificial que, até recentemente, fizemos para as maiores empresas do Brasil. Desde o início, uma mesma paixão: trabalhar com dados e tecnologia para transformar o mundo.
+</p>
+
+    <p class="is-size-5">
+Mas não era só isso! Nosso sonho sempre foi também criar um ambiente de trabalho leve e autônomo. Fomentamos o intraempreendedorismo na Hekima e vimos uma série de iniciativas marcantes nascer e brilhar. Não foram só os mais de 100 projetos que fizemos para diferentes indústrias, desde a logística, varejo, siderurgia, aviação e até a educação, como também as iniciativas internas: Zap Dólares, Flocking, Comitês de Diversidade, Hekima Talks e, obviamente, nossos disputadíssimos concursos de fantasia de Carnaval.
+</p>
+
+    <p class="is-size-5">
+Agradecemos a todos os clientes, parceiros, investidores e entusiastas que fizeram parte da história da Hekima e acreditaram no nosso trabalho. Mas, principalmente, agradecemos aos hekimers e ex-hekimers que nos ajudaram a construir uma empresa de sucesso e, ainda mais importante, uma empresa muito humana. 
+</p>
+
+<p class="is-size-5">
+Temos certeza de que nossa cultura e nossos valores continuarão presentes em cada pessoa que por aqui passou. Esse primeiro ciclo termina, mas nossa história ainda terá muitos capítulos. :)
+</p>
+
+#GoHekima! #GoIFood!
+Fundadores Hekima
+
+    </div>
+</body>
+
+</html>
