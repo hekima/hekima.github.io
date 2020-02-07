@@ -1,11 +1,11 @@
 # Site settings
-title:       Hekima Development Blog
+title:       Hekima 
 email:       contact@hekima.com
-author:      Hekima Developers
+author:      Hekima Founders
 description: ""
 baseurl:     ""
 #url:         "http://hekima.github.io"
-url:         "http://developers.hekima.com"
+url:         "http://hekima.com"
 comments: true
 
 # Google analytics
@@ -39,9 +39,6 @@ sass:
   compressed: true
 
 # Disqus
-disqus:
-    shortname: 'hekimadev'
-
 gems :
     - jekyll-paginate
 
